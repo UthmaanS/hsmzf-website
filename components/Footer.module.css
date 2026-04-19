@@ -1,0 +1,33 @@
+.footer { background: var(--dark); padding: 4rem 2rem 2rem; }
+.grid {
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem;
+  max-width: 1200px; margin: 0 auto;
+}
+.brand .brandName {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; color: var(--cream); font-weight: 600; margin-bottom: 0.75rem;
+}
+.brand p { font-size: 0.84rem; color: rgba(250,246,239,0.5); line-height: 1.7; max-width: 280px; margin-bottom: 1.25rem; }
+.charityNo { font-size: 0.72rem; color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase; }
+
+.col h4 { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 1rem; }
+.col a, .col p { display: block; font-size: 0.84rem; color: rgba(250,246,239,0.5); text-decoration: none; margin-bottom: 0.5rem; line-height: 1.6; }
+.col a:hover { color: var(--cream); }
+
+.socials { display: flex; gap: 0.5rem; margin-top: 0.75rem; }
+.socials a {
+  padding: 5px 12px; border-radius: 100px; font-size: 0.72rem; font-weight: 500;
+  background: var(--forest); color: var(--cream); text-decoration: none; transition: background 0.2s;
+}
+.socials a:hover { background: var(--forest-light); }
+
+.bottom {
+  max-width: 1200px; margin: 3rem auto 0;
+  padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+}
+.bottom p { font-size: 0.76rem; color: rgba(250,246,239,0.3); }
+.bottom a { font-size: 0.76rem; color: rgba(250,246,239,0.3); text-decoration: underline; }
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }

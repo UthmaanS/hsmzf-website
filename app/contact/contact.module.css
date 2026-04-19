@@ -1,0 +1,59 @@
+.hero {
+  background: var(--forest); padding: 8rem 2rem 5rem; text-align: center;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--cream); font-weight: 600;
+}
+.hero p { color: rgba(250,246,239,0.7); max-width: 450px; margin: 1rem auto 0; line-height: 1.7; }
+
+.container { max-width: 1200px; margin: 0 auto; }
+.contactSection { padding: 5rem 2rem; }
+.grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 4rem; margin-top: 3rem; }
+
+.infoCol { display: flex; flex-direction: column; gap: 1.5rem; }
+.infoCard {
+  background: var(--cream); border-radius: 12px; padding: 1.5rem;
+  border: 1px solid rgba(201,168,76,0.2); display: flex; gap: 1rem; align-items: flex-start;
+}
+.infoIcon {
+  width: 44px; height: 44px; background: var(--forest); border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.2rem;
+}
+.infoCard h4 {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--forest); margin-bottom: 4px;
+}
+.infoCard p { font-size: 0.9rem; color: var(--text-light); line-height: 1.6; }
+.infoCard a { font-size: 0.9rem; color: var(--text-light); text-decoration: none; }
+.infoCard a:hover { color: var(--forest); }
+
+.socials { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 4px; }
+.socials a {
+  padding: 6px 14px; border-radius: 100px; font-size: 0.78rem; font-weight: 500;
+  background: var(--forest); color: var(--cream); text-decoration: none; transition: background 0.2s;
+}
+.socials a:hover { background: var(--forest-light); }
+
+.formBox {
+  background: var(--cream); border-radius: 16px; padding: 2rem;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.formBox h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem; color: var(--forest); margin-bottom: 1.5rem;
+}
+.submitBtn {
+  width: 100%; padding: 1rem; background: var(--forest); color: var(--cream);
+  border: none; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer;
+  transition: all 0.25s; font-family: inherit; margin-top: 0.5rem;
+}
+.submitBtn:hover { background: var(--forest-light); }
+.formSuccess {
+  background: rgba(61,122,86,0.1); border: 1px solid rgba(61,122,86,0.3);
+  border-radius: 8px; padding: 1.5rem; text-align: center;
+  color: var(--forest); font-size: 0.95rem; line-height: 1.6; margin-top: 1rem;
+}
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr; } }

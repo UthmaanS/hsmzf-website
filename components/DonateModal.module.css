@@ -1,0 +1,125 @@
+.overlay {
+  position: fixed; inset: 0; z-index: 2000;
+  background: rgba(10,40,20,0.7); backdrop-filter: blur(6px);
+  display: flex; align-items: center; justify-content: center; padding: 1rem;
+}
+.modal {
+  background: var(--warm-white); border-radius: 20px;
+  width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(10,40,20,0.3);
+  animation: modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalIn { from{transform:scale(0.9);opacity:0} to{transform:scale(1);opacity:1} }
+
+.header {
+  background: var(--forest); padding: 1.5rem 1.75rem;
+  border-radius: 20px 20px 0 0;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem; color: var(--cream); font-weight: 600;
+}
+.close {
+  width: 32px; height: 32px; background: rgba(255,255,255,0.1);
+  border: none; cursor: pointer; border-radius: 50%;
+  color: var(--cream); font-size: 1rem; display: flex; align-items: center; justify-content: center;
+}
+.close:hover { background: rgba(255,255,255,0.2); }
+
+.body { padding: 1.75rem; }
+.desc { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1.25rem; }
+
+.amountSection label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.75rem; display: block; }
+.amountGrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; margin-bottom: 0.75rem; }
+.amountBtn {
+  padding: 0.7rem; border-radius: 8px;
+  border: 1.5px solid rgba(201,168,76,0.3); background: transparent;
+  font-size: 0.92rem; font-weight: 600; cursor: pointer; color: var(--forest);
+  transition: all 0.2s; font-family: inherit;
+}
+.amountBtn:hover, .amountBtn.selected { background: var(--forest); color: var(--cream); border-color: var(--forest); }
+.customRow { margin-bottom: 1rem; }
+.customInput {
+  display: flex; align-items: center;
+  border: 1.5px solid rgba(201,168,76,0.3); border-radius: 8px;
+  overflow: hidden; background: var(--cream);
+}
+.customInput span { padding: 0 0.75rem; font-weight: 600; color: var(--forest); }
+.customInput input {
+  flex: 1; border: none; background: transparent; padding: 0.7rem 0;
+  font-size: 0.95rem; outline: none; color: var(--text); font-family: inherit;
+}
+
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+.paymentSection { margin: 1rem 0; }
+.paymentSection > label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--forest); margin-bottom: 0.75rem; display: block; }
+.tabs {
+  display: flex; gap: 0.5rem; border: 1.5px solid rgba(201,168,76,0.3);
+  border-radius: 10px; padding: 4px; background: var(--cream);
+}
+.tab {
+  flex: 1; padding: 0.5rem; border-radius: 7px; border: none;
+  font-size: 0.8rem; font-weight: 500; cursor: pointer;
+  background: transparent; color: var(--text-light); font-family: inherit;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+}
+.tab.tabActive { background: var(--forest); color: var(--cream); }
+
+.cardFields {
+  background: var(--cream); border-radius: 10px; padding: 1rem;
+  border: 1px solid rgba(201,168,76,0.2); margin-top: 0.75rem;
+}
+.cardIcons { display: flex; gap: 0.5rem; margin-bottom: 0.75rem; }
+.cardIcons span {
+  background: #fff; border: 1px solid #e0e0e0; border-radius: 4px;
+  padding: 3px 8px; font-size: 0.7rem; font-weight: 700;
+}
+
+.bacsBox, .paypalBox {
+  background: var(--cream); border-radius: 10px; padding: 1rem;
+  border: 1px solid rgba(201,168,76,0.2); margin-top: 0.75rem;
+  font-size: 0.85rem; color: var(--text-light); line-height: 1.6;
+}
+.paypalBox { text-align: center; }
+.paypalBtn {
+  display: inline-block; margin-top: 0.75rem;
+  background: #0070ba; color: #fff; padding: 0.65rem 1.5rem;
+  border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 600;
+}
+
+.giftAid {
+  background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 10px; padding: 1rem 1.25rem; margin: 1rem 0;
+  display: flex; gap: 0.75rem; align-items: flex-start;
+}
+.giftAid input { width: 18px; height: 18px; margin-top: 2px; accent-color: var(--forest); cursor: pointer; flex-shrink: 0; }
+.giftAid label { font-size: 0.82rem; color: var(--text); line-height: 1.5; cursor: pointer; }
+.giftAid label strong { color: var(--forest); }
+
+.submitBtn {
+  width: 100%; padding: 1rem; background: var(--forest); color: var(--cream);
+  border: none; border-radius: 10px; font-size: 0.9rem; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer;
+  transition: all 0.25s; font-family: inherit;
+}
+.submitBtn:hover { background: var(--forest-light); }
+.secureNote { text-align: center; font-size: 0.72rem; color: var(--text-light); margin-top: 0.5rem; }
+
+.success { text-align: center; padding: 2rem 1rem; }
+.successIcon { font-size: 4rem; margin-bottom: 1rem; }
+.success h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--forest); margin-bottom: 0.5rem; }
+.success p { color: var(--text-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.5rem; }
+.closeBtn {
+  background: var(--forest); color: var(--cream); border: none; padding: 0.75rem 2rem;
+  border-radius: 100px; font-size: 0.85rem; font-weight: 600; cursor: pointer; font-family: inherit;
+}
+
+@media (max-width: 600px) {
+  .formRow, .amountGrid { grid-template-columns: 1fr 1fr; }
+  .tabs { flex-direction: column; }
+}
+
+.errorMsg { color: #c0392b; font-size: 0.82rem; background: rgba(192,57,43,0.08); border: 1px solid rgba(192,57,43,0.2); border-radius: 8px; padding: 0.6rem 1rem; margin-bottom: 0.75rem; }
+.submitBtn:disabled { opacity: 0.6; cursor: not-allowed; }

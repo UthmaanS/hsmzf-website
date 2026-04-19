@@ -1,0 +1,121 @@
+:root {
+  --forest: #1a3a2a;
+  --forest-mid: #2c5c40;
+  --forest-light: #3d7a56;
+  --gold: #c9a84c;
+  --gold-light: #e4c97e;
+  --gold-pale: #f5e9c8;
+  --cream: #faf6ef;
+  --warm-white: #fffdf9;
+  --dark: #0e2018;
+  --mid: #4a6557;
+  --text: #2a3d32;
+  --text-light: #6b8070;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--warm-white);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ── */
+.cormorant { font-family: 'Cormorant Garamond', serif; }
+
+.section-label {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 1rem;
+}
+.section-label span {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold);
+}
+.section-label::before {
+  content: ''; display: block; width: 30px; height: 1px; background: var(--gold);
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem); font-weight: 600;
+  color: var(--forest); line-height: 1.1; margin-bottom: 1rem;
+}
+.section-subtitle {
+  font-size: 1rem; line-height: 1.7; color: var(--text-light); max-width: 600px;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  background: var(--gold); color: var(--dark);
+  padding: 0.85rem 2rem; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; cursor: pointer; border: none;
+  transition: all 0.25s; text-decoration: none; display: inline-block;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,168,76,0.4); }
+
+.btn-outline {
+  background: transparent; color: var(--cream);
+  padding: 0.85rem 2rem; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; cursor: pointer; border: 1px solid rgba(250,246,239,0.4);
+  transition: all 0.25s; text-decoration: none; display: inline-block;
+}
+.btn-outline:hover { border-color: var(--cream); background: rgba(250,246,239,0.1); }
+
+.btn-forest {
+  background: var(--forest); color: var(--cream);
+  padding: 0.85rem 2rem; border-radius: 100px;
+  font-size: 0.85rem; font-weight: 600; letter-spacing: 0.05em;
+  text-transform: uppercase; cursor: pointer; border: none;
+  transition: all 0.25s; text-decoration: none; display: inline-block;
+}
+.btn-forest:hover { background: var(--forest-light); transform: translateY(-2px); }
+
+/* ── FADE UP ANIMATION ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: fadeUp 0.7s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0; z-index: 2000;
+  background: rgba(10,40,20,0.7); backdrop-filter: blur(6px);
+  align-items: center; justify-content: center; padding: 1rem;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: var(--warm-white); border-radius: 20px;
+  width: 100%; max-width: 520px; max-height: 90vh; overflow-y: auto;
+  box-shadow: 0 30px 80px rgba(10,40,20,0.3);
+  animation: modalIn 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalIn { from{transform:scale(0.9);opacity:0} to{transform:scale(1);opacity:1} }
+
+/* ── FORM ELEMENTS ── */
+.form-group { margin-bottom: 1rem; }
+.form-group label {
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--forest); margin-bottom: 0.5rem; display: block;
+}
+.form-group input, .form-group select, .form-group textarea {
+  width: 100%; padding: 0.75rem 1rem;
+  border: 1.5px solid rgba(201,168,76,0.3); border-radius: 8px;
+  background: var(--cream); font-family: 'DM Sans', sans-serif;
+  font-size: 0.92rem; color: var(--text); outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+  border-color: var(--forest);
+}
+.form-group textarea { resize: vertical; min-height: 120px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+}

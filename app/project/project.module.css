@@ -1,0 +1,54 @@
+.hero {
+  background: linear-gradient(135deg, var(--forest) 0%, var(--forest-mid) 100%);
+  padding: 8rem 2rem 5rem; text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background: radial-gradient(circle at 50% 100%, rgba(201,168,76,0.15) 0%, transparent 60%);
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem); color: var(--cream); font-weight: 600;
+  position: relative; z-index: 1; max-width: 800px; margin: 0 auto 1rem; line-height: 1.1;
+}
+.hero p { color: rgba(250,246,239,0.75); max-width: 600px; margin: 0 auto; position: relative; z-index: 1; line-height: 1.7; }
+
+.container { max-width: 1200px; margin: 0 auto; }
+.specsSection { background: var(--cream); padding: 5rem 2rem; }
+.specsGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 3rem; }
+.specCard {
+  background: var(--warm-white); border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 12px; padding: 1.5rem; text-align: center; transition: all 0.3s;
+}
+.specCard:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(10,40,20,0.1); border-color: var(--gold); }
+.specIcon { font-size: 2rem; margin-bottom: 0.75rem; }
+.specNum { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--forest); line-height: 1; }
+.specLabel { font-size: 0.78rem; color: var(--text-light); margin-top: 4px; }
+
+.phasesSection { padding: 5rem 2rem; }
+.phases { margin-top: 3rem; display: flex; flex-direction: column; gap: 2rem; }
+.phaseItem { display: grid; grid-template-columns: 80px 1fr; gap: 2rem; align-items: start; }
+.phaseNum { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 600; color: var(--gold); line-height: 1; text-align: center; }
+.phaseContent { background: var(--cream); border-radius: 12px; padding: 1.5rem 2rem; border-left: 3px solid var(--gold); }
+.done { border-left-color: var(--forest-light); }
+.active { border-left-color: var(--gold); }
+.upcoming { border-left-color: var(--mid); }
+.phaseContent h3 { font-size: 1rem; font-weight: 600; color: var(--forest); margin-bottom: 0.5rem; }
+.phaseContent p { font-size: 0.9rem; color: var(--text-light); line-height: 1.65; }
+.badge {
+  display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; padding: 3px 10px; border-radius: 100px; margin-bottom: 0.5rem;
+}
+.badge_done { background: rgba(61,122,86,0.15); color: var(--forest); }
+.badge_active { background: rgba(201,168,76,0.2); color: #7a5c1e; }
+.badge_upcoming { background: rgba(100,120,110,0.1); color: var(--mid); }
+
+.ctaSection { background: var(--cream); padding: 5rem 2rem; }
+
+@media (max-width: 900px) {
+  .specsGrid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .phaseItem { grid-template-columns: 50px 1fr; gap: 1rem; }
+  .phaseNum { font-size: 2rem; }
+}

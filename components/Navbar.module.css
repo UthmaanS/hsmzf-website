@@ -1,0 +1,70 @@
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(250,246,239,0.97);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.2);
+  padding: 0 2rem;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 72px;
+  transition: box-shadow 0.3s;
+}
+.nav.scrolled { box-shadow: 0 4px 30px rgba(10,40,20,0.12); }
+
+.logo {
+  display: flex; align-items: center; gap: 12px; text-decoration: none;
+}
+.logoIcon {
+  width: 42px; height: 42px; background: var(--forest);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+}
+.logoText { line-height: 1.15; }
+.abbr {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem; font-weight: 600; color: var(--forest);
+  letter-spacing: 0.05em; display: block;
+}
+.tagline {
+  font-size: 0.6rem; font-weight: 500; color: var(--gold);
+  letter-spacing: 0.15em; text-transform: uppercase; display: block;
+}
+
+.links { display: flex; align-items: center; gap: 0.25rem; }
+.link {
+  font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+  text-transform: uppercase; padding: 0.5rem 0.9rem;
+  color: var(--text); text-decoration: none; border-radius: 100px;
+  transition: all 0.2s; cursor: pointer; background: none; border: none; font-family: inherit;
+}
+.link:hover, .link.active { background: var(--forest); color: var(--cream); }
+.donateBtn { background: var(--gold) !important; color: var(--dark) !important; font-weight: 600 !important; }
+.donateBtn:hover { background: var(--forest) !important; color: var(--cream) !important; }
+
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  cursor: pointer; padding: 4px; background: none; border: none;
+}
+.hamburger span { width: 24px; height: 2px; background: var(--forest); border-radius: 2px; display: block; }
+
+.mobileMenu {
+  position: fixed; top: 72px; left: 0; right: 0; bottom: 0;
+  background: var(--warm-white); z-index: 999; padding: 2rem;
+  display: flex; flex-direction: column; gap: 0.5rem;
+}
+.mobileLink {
+  font-size: 1.2rem; font-weight: 500; padding: 1rem 1.5rem;
+  color: var(--text); text-decoration: none; border-radius: 8px;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  background: none; border-left: none; border-right: none; border-top: none;
+  font-family: inherit; cursor: pointer; text-align: left;
+}
+.mobileLink:hover { background: var(--gold-pale); }
+.mobileDonate {
+  margin-top: 1rem; background: var(--forest) !important;
+  color: var(--cream) !important; text-align: center !important;
+  border-radius: 8px !important; border: none !important;
+}
+
+@media (max-width: 900px) {
+  .links { display: none; }
+  .hamburger { display: flex; }
+}

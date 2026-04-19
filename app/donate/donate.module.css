@@ -1,0 +1,58 @@
+.hero {
+  background: var(--forest); padding: 8rem 2rem 5rem; text-align: center; position: relative;
+}
+.hero::after {
+  content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 60px;
+  background: var(--warm-white); clip-path: ellipse(60% 100% at 50% 100%);
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 3.5rem); color: var(--cream); font-weight: 600; position: relative; z-index: 1;
+}
+.hero p { color: rgba(250,246,239,0.7); position: relative; z-index: 1; max-width: 500px; margin: 1rem auto 0; }
+
+.container { max-width: 1200px; margin: 0 auto; }
+.donateSection { padding: 4rem 2rem 6rem; }
+.grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+
+.card {
+  background: var(--warm-white); border-radius: 16px; border: 1px solid rgba(201,168,76,0.2);
+  overflow: hidden; transition: all 0.3s;
+}
+.card:hover { transform: translateY(-6px); box-shadow: 0 20px 40px rgba(10,40,20,0.12); border-color: var(--gold); }
+.featured { border-color: var(--gold); border-width: 2px; box-shadow: 0 8px 30px rgba(201,168,76,0.2); }
+
+.cardHeader { background: var(--forest); padding: 1.5rem; position: relative; overflow: hidden; }
+.featured .cardHeader { background: linear-gradient(135deg, var(--forest) 0%, #3a6e50 100%); }
+.ribbon {
+  position: absolute; top: 12px; right: 12px;
+  background: var(--gold); color: var(--dark);
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px;
+}
+.cardIcon { font-size: 2rem; margin-bottom: 0.75rem; }
+.cardHeader h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; color: var(--cream); font-weight: 600; }
+.cardAmount { font-size: 0.85rem; color: var(--gold-light); margin-top: 4px; }
+
+.cardBody { padding: 1.25rem 1.5rem; }
+.cardBody p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1.25rem; }
+.donateBtn {
+  display: block; width: 100%; padding: 0.75rem; border-radius: 8px;
+  font-size: 0.82rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+  cursor: pointer; border: none; transition: all 0.2s; background: var(--forest); color: var(--cream);
+  font-family: inherit; text-align: center; text-decoration: none;
+}
+.donateBtn:hover { background: var(--forest-light); }
+.featuredBtn { background: var(--gold); color: var(--dark); }
+.featuredBtn:hover { background: var(--gold-light); }
+
+.ramadhanBanner {
+  background: var(--gold-pale); border: 1px solid rgba(201,168,76,0.4); border-radius: 12px;
+  padding: 1.5rem 2rem; margin-top: 2rem; display: flex; gap: 1rem; align-items: center;
+}
+.ramadhanBanner strong { font-size: 0.9rem; color: var(--forest); }
+.ramadhanBanner p { font-size: 0.85rem; color: var(--text-light); margin-top: 2px; }
+.ramadhanBanner a { font-size: 0.82rem; color: var(--forest); font-weight: 600; text-decoration: none; }
+
+@media (max-width: 900px) { .grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 600px) { .grid { grid-template-columns: 1fr; } }
