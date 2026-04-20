@@ -1,6 +1,8 @@
 'use client'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { siteConfig } from '@/lib/content'
+import { supabase } from '@/lib/supabase'
 import styles from './page.module.css'
 
 const openModal = (type: string) => {
@@ -9,9 +11,20 @@ const openModal = (type: string) => {
 
 export default function HomePage() {
   const { home, org } = siteConfig
+  const [imgs, setImgs] = useState<Record<string,string>>({})
+
+  useEffect(() => {
+    supabase.from('site_settings').select('*').then(({ data }) => {
+      if (data) {
+        const map: Record<string,string> = {}
+        data.forEach((r: any) => { map[r.key] = r.value || '' })
+        setImgs(map)
+      }
+    })
+  }, [])
+
   return (
     <>
-      {/* Hero */}
       <section className={styles.hero}>
         <div className={styles.heroBg} />
         <div className={styles.heroGeo} />
@@ -21,39 +34,18 @@ export default function HomePage() {
               <span className={styles.badgeDot} />
               <span>{home.hero.badge}</span>
             </div>
-            <h1>
-              {home.hero.heading}<br />
-              <em>{home.hero.headingItalic}</em>
-            </h1>
+            <h1>{home.hero.heading}<br /><em>{home.hero.headingItalic}</em></h1>
             <p className={styles.heroSub}>{home.hero.subtext}</p>
             <div className={styles.heroActions}>
-              <button
-                className="btn-primary"
-                onClick={() => openModal('general')}
-              >
-                Donate Today
-              </button>
+              <button className="btn-primary" onClick={() => openModal('general')}>Donate Today</button>
               <Link href="/project" className="btn-outline">View the Project</Link>
             </div>
           </div>
-
           <div className={`${styles.heroStats} fade-up delay-2`}>
-            <div className={styles.statCard}>
-              <div className={styles.statNum}>6,000</div>
-              <div className={styles.statLabel}>Square metres acquired</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statNum}>14</div>
-              <div className={styles.statLabel}>Planned classrooms</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statNum}>{org.founded}</div>
-              <div className={styles.statLabel}>Foundation established</div>
-            </div>
-            <div className={styles.statCard}>
-              <div className={styles.statNum}>SEND</div>
-              <div className={styles.statLabel}>Specialist facilities</div>
-            </div>
+            <div className={styles.statCard}><div className={styles.statNum}>6,000</div><div className={styles.statLabel}>Square metres acquired</div></div>
+            <div className={styles.statCard}><div className={styles.statNum}>14</div><div className={styles.statLabel}>Planned classrooms</div></div>
+            <div className={styles.statCard}><div className={styles.statNum}>{org.founded}</div><div className={styles.statLabel}>Foundation established</div></div>
+            <div className={styles.statCard}><div className={styles.statNum}>SEND</div><div className={styles.statLabel}>Specialist facilities</div></div>
             <div className={`${styles.statCard} ${styles.statLarge}`}>
               <div className={styles.progressLabel}>
                 <span>{home.progressBar.label}</span>
@@ -72,7 +64,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Mission Strip */}
       <div className={styles.missionStrip}>
         <div className={styles.missionInner}>
           <p>"{home.missionQuote}"</p>
@@ -80,7 +71,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* About */}
       <section className={styles.aboutSection}>
         <div className={styles.container}>
           <div className="section-label"><span>About the Foundation</span></div>
@@ -88,8 +78,12 @@ export default function HomePage() {
           <div className={styles.aboutGrid}>
             <div className={styles.imageStack}>
               <div className={styles.goldBar} />
-              <img className={styles.imgMain} src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80" alt="Education" />
-              <img className={styles.imgAccent} src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80" alt="Children learning" />
+              <img className={styles.imgMain}
+                src={imgs.about_image1_url || "https://images.unsplash.com/photo-1580582932707-520aed937b7b?w=600&q=80"}
+                alt="Education" />
+              <img className={styles.imgAccent}
+                src={imgs.about_image2_url || "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80"}
+                alt="Children learning" />
             </div>
             <div>
               <p className={styles.aboutPara}>{home.about.paragraph1}</p>
@@ -113,7 +107,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Hadith Quote */}
       <div className={styles.quoteSection}>
         <div className={styles.quoteInner}>
           <span className={styles.quoteMark}>"</span>
@@ -122,7 +115,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Impact */}
       <section className={styles.impactSection}>
         <div className={styles.container}>
           <div className="section-label" style={{ justifyContent: 'center' }}><span style={{ color: 'var(--gold)' }}>What we aim to achieve</span></div>
@@ -138,12 +130,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Donate Preview */}
       <section className={styles.donatePreview}>
         <div className={styles.container}>
           <div className="section-label"><span>Ways to Give</span></div>
           <h2 className="section-title">Choose how you'd like to help</h2>
-          <p className="section-subtitle">Every pound you give directly supports the education and welfare of children in Bolton. All donations are Gift Aid eligible.</p>
+          <p className="section-subtitle">Every pound you give directly supports the education and welfare of children in Bolton.</p>
           <div className={styles.previewGrid}>
             <Link href="/donate" className={styles.previewCard}>
               <div className={styles.previewIcon}>🏗️</div>
