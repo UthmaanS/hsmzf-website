@@ -83,7 +83,7 @@ export default function HomePage() {
                 alt="Education" />
               <img className={styles.imgAccent}
                 src={imgs.about_image2_url || "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=400&q=80"}
-                alt="Children learning" />
+                alt="Children" />
             </div>
             <div>
               <p className={styles.aboutPara}>{home.about.paragraph1}</p>
@@ -92,10 +92,7 @@ export default function HomePage() {
                 {home.about.values.map(v => (
                   <div key={v.title} className={styles.valueItem}>
                     <div className={styles.valueIcon}>{v.icon}</div>
-                    <div>
-                      <h4>{v.title}</h4>
-                      <p>{v.desc}</p>
-                    </div>
+                    <div><h4>{v.title}</h4><p>{v.desc}</p></div>
                   </div>
                 ))}
               </div>
